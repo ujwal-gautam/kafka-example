@@ -1,6 +1,8 @@
 package com.example.kafkaproducer.config;
 
 import com.example.kafkaproducer.model.KafkaModel;
+import com.example.kafkaproducer.property.AppProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -17,11 +19,14 @@ import java.util.Map;
 @Configuration
 public class SpringConfig {
 
+    @Autowired
+    AppProperties appProperties;
+
     @Bean
     public ProducerFactory<String, KafkaModel> producerFactory() {
         Map<String, Object> config = new HashMap<>();
 
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.0.51:39092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, appProperties.getServerAddress());
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
