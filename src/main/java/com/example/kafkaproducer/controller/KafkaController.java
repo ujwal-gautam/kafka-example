@@ -24,5 +24,6 @@ public class KafkaController {
     public String storeData(@RequestBody KafkaModel kafkaModel){
         kafkaTemplate.send(TOPIC, kafkaModel);
         return "Store data successfully";
+
     }
 }
