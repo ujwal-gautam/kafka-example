@@ -30,4 +30,4 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/kafka-producer:v1
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/kafka-producer:latest
