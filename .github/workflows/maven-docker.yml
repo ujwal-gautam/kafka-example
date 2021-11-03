@@ -53,6 +53,6 @@ jobs:
             script: |
               docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
               docker pull ${{ secrets.DOCKER_USERNAME }}/kafka-producer:latest
-              docker run -d -p 9099:9099 --restart=always --name kafkaproducer -e port=9099 -e bootstrap-address=${{ secrets.BOOTSTRAP_ADDRESS }}:39092 ${{ secrets.DOCKER_USERNAME }}/kafka-producer:latest
+              docker run -d -p 9003:9003 --restart=always --name kafkaproducer -e port=9003 -e bootstrap-address=${{ secrets.BOOTSTRAP_ADDRESS }}:39092 ${{ secrets.DOCKER_USERNAME }}/kafka-producer:latest
               docker system prune -f
               echo "Done..."
