@@ -10,6 +10,7 @@ public class KafkaModel {
 
     private int id;
     private String name;
+
     private String emailId;
 
 
